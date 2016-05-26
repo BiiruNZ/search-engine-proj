@@ -4,15 +4,15 @@
 
 var SERVERROOT = 'http://localhost:8983/solr/test/select/'; //SELECT endpoint
 var HITTITLE = 'title';                                        //Name of the title field- the heading of each hit
-var HITBODY = 'id';                                          //Name of the body field- the teaser text of each hit
+var HITBODY = 'og_url';                                          //Name of the body field- the teaser text of each hit
 var HITSPERPAGE = 20;                                          //page size- hits per page
-var FACETS = ['title','id'];                       //facet categories
+var FACETS = ['title','og_site_name'];                       //facet categories
 
-var FACETS_TITLES = {'name': 'title'};  // selective rename facet names for display
+var FACETS_TITLES = {'title': 'name','og_site_name':'site'};  // selective rename facet names for display
 
 var HITID = 'id'		// Name of the id field
 var HITTEASER = 'teaser';	// Name of field to use for teaser
-var HITLINK = 'url';		// Name of field to use for link
+var HITLINK = 'og_url';		// Name of field to use for link
 
 var HL = true;
 var HL_FL = 'text, title';
@@ -98,16 +98,16 @@ var AUTOSEARCH_DELAY = 0;
 		var title = normalize_ws(get_maybe_highlit(result, i, HITTITLE));
 		  var text = normalize_ws(get_maybe_highlit(result, i, HITBODY));
 		  var teaser = normalize_ws(get_maybe_highlit(result, i, HITTEASER));
-		var link = result.response.docs[i][HITLINK];
+		var link = normalize_ws(get_maybe_highlit(result, i, HITLINK));
 	      
-		var hit_data = {title: title, text: text};
+		var hit_data = {link:link,title: title, text: text};
 
 		if (teaser) {
 		  hit_data['teaser'] = teaser;
 		}
-		if (link) {
-		  hit_data['link'] = link;
-		}
+		//if (link) {
+		//  hit_data['link'] = link;
+		
 
 		rs.append(TEMPLATES.hitTemplate(hit_data));
 	      }
