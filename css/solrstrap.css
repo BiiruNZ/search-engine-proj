@@ -1,4 +1,5 @@
 body {padding-top: 60px;}
+.navbar-search{padding-top: 10px;}
 #search-form {margin:0px;}
 #result-summary{margin-bottom:20px;}
 html { overflow-y: scroll; } /*force scrollbar*/

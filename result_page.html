@@ -17,7 +17,7 @@
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
-          <a class="brand" href="#">Code Search</a>
+          <a class="brand" href="#"><img src="logo.png" style="width:150px;height:40px;"> </a>
           <form class="navbar-search" style="float:right">
             <div id="search-div">
               <input type="text" class="search-query span8" placeholder="Search for your code..." onfocus="this.value = this.value;" id="solrstrap-searchbox" name="q">
@@ -32,28 +32,8 @@
         <div id="solrstrap-hits" class="span8"></div>
       </div>
     </div>
-	
-	<!-- Logging Part -->
-	<script type="text/javascript" src="jquery-2.2.4.js">
-		$("a[href]").click(function() {
-			var url = this.href;
-			//var UserQuery = InputQuery;
-			
-			$.ajax({
-				async: false,
-				cache: false,
-				type: 'POST',
-				url: 'logger.php',
-				data: {
-					//query: UserQuery,
-					clicked: url
-				}
-			});
-			
-			return true; 
-		});
-	</script>
-		
+
+
     <!--Handlebars layout templates-->
     <script type="text/x-handlebars-template" id="hit-template">
     <div class="entry">

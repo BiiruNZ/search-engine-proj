@@ -30,10 +30,10 @@
 
         <div class="cover-container">
 
-          
+
 
           <div class="inner cover">
-            <h1 class="cover-heading">Code Search</h1>
+            <h1 class="cover-heading"><img src="logo2.png" style="width:400px;height:100px;"></h1>
             <div class="col-lg-6">
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="Search for..." onfocus="this.value=this.value"
@@ -65,9 +65,9 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
           <script type='text/javascript' src="js/solrstrap.js"></script>
       <script type="text/javascript">
-          var a=document.getElementById('inputbox').value;
         document.getElementById("searchbtn").onclick = function(){
-            location.href ="result_page.html?"+a;
+            var a=document.getElementById('inputbox').value;
+            location.href ="result_page.html#q="+a;
         }
       </script>
 

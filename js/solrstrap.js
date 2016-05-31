@@ -8,14 +8,14 @@ var HITBODY = 'og_url';                                          //Name of the b
 var HITSPERPAGE = 20;                                          //page size- hits per page
 var FACETS = ['title','og_site_name'];                       //facet categories
 
-var FACETS_TITLES = {'title': 'name','og_site_name':'site'};  // selective rename facet names for display
+var FACETS_TITLES = {'title': 'cluster','og_site_name':'site'};  // selective rename facet names for display
 
 var HITID = 'id'		// Name of the id field
-var HITTEASER = 'teaser';	// Name of field to use for teaser
+var HITTEASER = '_text_';	// Name of field to use for teaser
 var HITLINK = 'og_url';		// Name of field to use for link
 
 var HL = true;
-var HL_FL = 'text, title';
+var HL_FL = 'content';
 var HL_SIMPLE_PRE = '<em>';
 var HL_SIMPLE_POST = '</em>';
 var HL_SNIPPETS = 3;
@@ -100,7 +100,7 @@ var AUTOSEARCH_DELAY = 0;
 		  var teaser = normalize_ws(get_maybe_highlit(result, i, HITTEASER));
 		var link = normalize_ws(get_maybe_highlit(result, i, HITLINK));
 	      
-		var hit_data = {link:link,title: title, text: text};
+		var hit_data = {link:link,title: title,text: text};
 
 		if (teaser) {
 		  hit_data['teaser'] = teaser;
